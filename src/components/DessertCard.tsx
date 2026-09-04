@@ -6,25 +6,28 @@ interface DessertCardProps {
 
 export const DessertCard = ({ dessert }: DessertCardProps) => {
   return (
-    <>
-      <div>
-        <img src={dessert.image.desktop} alt={dessert.name} />
+    <div className="w-[245px]">
+      <img
+        className="rounded-lg"
+        src={dessert.image.desktop}
+        alt={dessert.name}
+      />
 
-        <div>
-          <img
-            src="../public/assets/images/icon-add-to-cart.svg"
-            alt="add-to-cart"
-          />
+      <div className="w-full flex justify-center relative bottom-5">
+        <div className="w-fit flex gap-2 bg-white justify-center items-center border border-rose-500 px-6 py-1.5 rounded-full">
+          <img src="/assets/images/icon-add-to-cart.svg" alt="add-to-cart" />
 
-          <p>Add to Cart</p>
-        </div>
-
-        <div>
-          <p>{dessert.name}</p>
-          <h3>{dessert.caption}</h3>
-          <p>{dessert.price}</p>
+          <p className="font-semibold text-[14px]">Add to Cart</p>
         </div>
       </div>
-    </>
+
+      <div>
+        <p className="text-rose-400 text-[14px]">{dessert.name}</p>
+        <h3 className="font-semibold">{dessert.caption}</h3>
+        <p className="text-[hsl(14_86%_42%)] font-semibold">
+          ${dessert.price.toFixed(2)}
+        </p>
+      </div>
+    </div>
   );
 };
