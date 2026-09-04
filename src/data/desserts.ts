@@ -1,10 +1,10 @@
-import type { Dessert } from "./types";
+import type { Dessert } from "../types";
 
 export const dessertsData: Dessert[] = [
   {
     id: 1,
-    name: "Waffle with Berries",
-    caption: "Waffle",
+    name: "Waffle",
+    caption: "Waffle with Berries",
     price: 6.5,
     image: {
       thumbnail: "/assets/images/image-waffle-thumbnail.jpg",
@@ -15,8 +15,8 @@ export const dessertsData: Dessert[] = [
   },
   {
     id: 2,
-    name: "Vanilla Bean Crème Brûlée",
-    caption: "Crème Brûlée",
+    name: "Crème Brûlée",
+    caption: "Vanilla Bean Crème Brûlée",
     price: 7.0,
     image: {
       thumbnail: "/assets/images/image-creme-brulee-thumbnail.jpg",
@@ -27,8 +27,8 @@ export const dessertsData: Dessert[] = [
   },
   {
     id: 3,
-    name: "Macaron Mix of Five",
-    caption: "Macaron",
+    name: "Macaron",
+    caption: "Macaron Mix of Five",
     price: 8.0,
     image: {
       thumbnail: "/assets/images/image-macaron-thumbnail.jpg",
@@ -39,8 +39,8 @@ export const dessertsData: Dessert[] = [
   },
   {
     id: 4,
-    name: "Classic Tiramisu",
-    caption: "Tiramisu",
+    name: "Tiramisu",
+    caption: "Classic Tiramisu",
     price: 5.5,
     image: {
       thumbnail: "/assets/images/image-tiramisu-thumbnail.jpg",
@@ -51,8 +51,8 @@ export const dessertsData: Dessert[] = [
   },
   {
     id: 5,
-    name: "Pistachio Baklava",
-    caption: "Baklava",
+    name: "Baklava",
+    caption: "Pistachio Baklava",
     price: 4.0,
     image: {
       thumbnail: "/assets/images/image-baklava-thumbnail.jpg",
@@ -63,8 +63,8 @@ export const dessertsData: Dessert[] = [
   },
   {
     id: 6,
-    name: "Lemon Meringue Pie",
-    caption: "Pie",
+    name: "Pie",
+    caption: "Lemon Meringue Pie",
     price: 5.0,
     image: {
       thumbnail: "/assets/images/image-meringue-thumbnail.jpg",
@@ -75,8 +75,8 @@ export const dessertsData: Dessert[] = [
   },
   {
     id: 7,
-    name: "Red Velvet Cake",
-    caption: "Cake",
+    name: "Cake",
+    caption: "Red Velvet Cake",
     price: 4.5,
     image: {
       thumbnail: "/assets/images/image-cake-thumbnail.jpg",
@@ -87,8 +87,8 @@ export const dessertsData: Dessert[] = [
   },
   {
     id: 8,
-    name: "Salted Caramel Brownie",
-    caption: "Brownie",
+    name: "Brownie",
+    caption: "Salted Caramel Brownie",
     price: 4.5,
     image: {
       thumbnail: "/assets/images/image-brownie-thumbnail.jpg",
@@ -99,8 +99,8 @@ export const dessertsData: Dessert[] = [
   },
   {
     id: 9,
-    name: "Vanilla Panna Cotta",
-    caption: "Panna Cotta",
+    name: "Panna Cotta",
+    caption: "Vanilla Panna Cotta",
     price: 6.5,
     image: {
       thumbnail: "/assets/images/image-panna-cotta-thumbnail.jpg",
