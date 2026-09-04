@@ -7,6 +7,15 @@ export const Cart = () => {
         </h1>
         <p className="text-[hsl(14_86%_42%)] font-bold text-[24px]">(0)</p>
       </div>
+
+      <div className="flex flex-col gap-3 items-center">
+        <img
+          src="/assets/images/illustration-empty-cart.svg"
+          alt="Empty cart"
+        />
+
+        <p className="text-[13px]">Your added Items will appear here</p>
+      </div>
     </div>
   );
 };
