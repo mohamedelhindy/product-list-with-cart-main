@@ -12,3 +12,7 @@ export interface Dessert {
   price: number;
   image: DessertImage;
 }
+
+export interface Cart extends Dessert {
+  quantity: number;
+}

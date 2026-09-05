@@ -1,13 +1,14 @@
-import { createContext, useState } from "react";
-import type { Dessert } from "../types";
+import { createContext, useReducer } from "react";
+import type { Cart } from "../types";
+import { cartReducer } from "../reducers/cartReducer";
 
 interface CartProviderProps {
   children: React.ReactNode;
 }
 
 interface CartContextType {
-  cart: Dessert[];
-  setCart: React.Dispatch<React.SetStateAction<Dessert[]>>;
+  cart: Cart[];
+  dispatch: React.Dispatch<any>;
 }
 
 export const CartContext = createContext<CartContextType | undefined>(
@@ -15,10 +16,10 @@ export const CartContext = createContext<CartContextType | undefined>(
 );
 
 export const CartProvider = ({ children }: CartProviderProps) => {
-  const [cart, setCart] = useState<Dessert[]>([]);
+  const [cart, dispatch] = useReducer(cartReducer, []);
 
   return (
-    <CartContext.Provider value={{ cart, setCart }}>
+    <CartContext.Provider value={{ cart, dispatch }}>
       {children}
     </CartContext.Provider>
   );
