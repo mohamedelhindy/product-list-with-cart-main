@@ -1,6 +1,10 @@
 import { useCart } from "../hooks/useCart";
 
-export const OrderCompleteModal = () => {
+interface OrderCompleteModalProps {
+  clicked: () => void;
+}
+
+export const OrderCompleteModal = ({ clicked }: OrderCompleteModalProps) => {
   const { cart, cartTotal } = useCart();
 
   return (
@@ -69,7 +73,10 @@ export const OrderCompleteModal = () => {
           </div>
         </div>
 
-        <button className="w-full mt-7 cursor-pointer rounded-full bg-[hsl(14_86%_42%)] py-4 text-[14px] font-semibold text-white cursor-pointer hover:bg-[hsl(14_86%_36%)] transition-colors duration-200">
+        <button
+          onClick={clicked}
+          className="w-full mt-7 cursor-pointer rounded-full bg-[hsl(14_86%_42%)] py-4 text-[14px] font-semibold text-white cursor-pointer hover:bg-[hsl(14_86%_36%)] transition-colors duration-200"
+        >
           Start New Order
         </button>
       </div>

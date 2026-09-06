@@ -39,6 +39,9 @@ export const cartReducer = (cart: Cart[], action: CartAction) => {
     case "remove_item":
       return cart.filter((item) => item.id !== action.payload.id);
 
+    case "clear_cart":
+      return [];
+
     default:
       return cart;
   }

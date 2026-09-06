@@ -3,7 +3,7 @@ import { useCart } from "../hooks/useCart";
 import { OrderCompleteModal } from "./OrderCompleteModal";
 
 export const Cart = () => {
-  const { cart, removeItem, cartCount, cartTotal } = useCart();
+  const { cart, removeItem, cartCount, cartTotal, clearCart } = useCart();
   const isEmpty = (): boolean => cart.length === 0;
 
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
@@ -17,6 +17,11 @@ export const Cart = () => {
       document.body.style.overflow = "";
     };
   }, [isModalOpen]);
+
+  const closedModal = () => {
+    setIsModalOpen(false);
+    clearCart();
+  };
 
   return (
     <>
@@ -41,43 +46,45 @@ export const Cart = () => {
           </div>
         ) : (
           <div className="flex flex-col gap-5">
-            {cart.map((item) => {
-              return (
-                <div
-                  className="flex justify-between items-center border-b border-b-[hsl(13_31%_94%)] pb-4"
-                  key={item.id}
-                >
-                  <div className="">
-                    <h1 className="text[hsl(14_65%_9%)] font-semibold">
-                      {item.caption}
-                    </h1>
+            <div className="cart-scroll max-h-[30vh] overflow-y-auto">
+              {cart.map((item) => {
+                return (
+                  <div
+                    className="flex justify-between items-center border-b border-b-[hsl(13_31%_94%)] pb-4 pr-2"
+                    key={item.id}
+                  >
+                    <div className="">
+                      <h1 className="text[hsl(14_65%_9%)] font-semibold">
+                        {item.caption}
+                      </h1>
 
-                    <div className="flex gap-2">
-                      <p className="text-[hsl(14_86%_42%)] font-semibold mr-3">
-                        {item.quantity}x
-                      </p>
+                      <div className="flex gap-2">
+                        <p className="text-[hsl(14_86%_42%)] font-semibold mr-3">
+                          {item.quantity}x
+                        </p>
 
-                      <p className="text-[hsl(7_20%_60%)]">
-                        @ ${item.price.toFixed(2)}
-                      </p>
-                      <p className="text-[hsl(12_20%_44%)] font-semibold">
-                        ${(item.price * item.quantity).toFixed(2)}
-                      </p>
+                        <p className="text-[hsl(7_20%_60%)]">
+                          @ ${item.price.toFixed(2)}
+                        </p>
+                        <p className="text-[hsl(12_20%_44%)] font-semibold">
+                          ${(item.price * item.quantity).toFixed(2)}
+                        </p>
+                      </div>
+                    </div>
+
+                    <div
+                      onClick={() => removeItem(item)}
+                      className="flex items-center justify-center border border-[hsl(7_20%_60%)] py-1 px-1 rounded-full"
+                    >
+                      <img
+                        src="/assets/images/icon-remove-item.svg"
+                        alt="remove item icon"
+                      />
                     </div>
                   </div>
-
-                  <div
-                    onClick={() => removeItem(item)}
-                    className="flex items-center justify-center border border-[hsl(7_20%_60%)] py-1 px-1 rounded-full"
-                  >
-                    <img
-                      src="/assets/images/icon-remove-item.svg"
-                      alt="remove item icon"
-                    />
-                  </div>
-                </div>
-              );
-            })}
+                );
+              })}
+            </div>
 
             <div className="flex justify-between items-center pt-4 pb-1">
               <p className="text[hsl(14_65%_9%)] text-[15px]">Order Total</p>
@@ -109,7 +116,7 @@ export const Cart = () => {
         )}
       </div>
 
-      {isModalOpen && <OrderCompleteModal />}
+      {isModalOpen && <OrderCompleteModal clicked={closedModal} />}
     </>
   );
 };

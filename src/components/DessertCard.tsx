@@ -21,9 +21,11 @@ export const DessertCard = ({ dessert }: DessertCardProps) => {
         <div>
           {inCart ? (
             <div className="w-fit flex gap-11 bg-[hsl(14_86%_42%)] justify-center items-center px-3 py-1.5 rounded-full transition-all duration-300">
-              <div className="flex items-center justify-center border border-white py-2 px-1 rounded-full cursor-pointer">
+              <div
+                onClick={() => decreaseItem(dessert)}
+                className="flex items-center justify-center border border-white py-2 px-1 rounded-full cursor-pointer"
+              >
                 <img
-                  onClick={() => decreaseItem(dessert)}
                   src="/assets/images/icon-decrement-quantity.svg"
                   alt="decrement quantity icon"
                 />
@@ -33,9 +35,11 @@ export const DessertCard = ({ dessert }: DessertCardProps) => {
                 {cart.find((item) => item.id === dessert.id)?.quantity}
               </p>
 
-              <div className="flex items-center justify-center border border-white py-1 px-1 rounded-full cursor-pointer">
+              <div
+                onClick={() => increaseItem(dessert)}
+                className="flex items-center justify-center border border-white py-1 px-1 rounded-full cursor-pointer"
+              >
                 <img
-                  onClick={() => increaseItem(dessert)}
                   src="/assets/images/icon-increment-quantity.svg"
                   alt="increment quantity icon"
                 />

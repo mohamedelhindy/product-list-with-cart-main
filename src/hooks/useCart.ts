@@ -50,6 +50,12 @@ export const useCart = () => {
     return total + item.price * item.quantity;
   }, 0);
 
+  const clearCart = () => {
+    dispatch({
+      type: "clear_cart",
+    });
+  };
+
   return {
     cart,
     addItem,
@@ -58,5 +64,6 @@ export const useCart = () => {
     decreaseItem,
     cartCount,
     cartTotal,
+    clearCart,
   };
 };
