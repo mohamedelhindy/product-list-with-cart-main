@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { CartContext } from "../context/CartContext";
 import type { Dessert } from "../types";
 
-export const useCart = (dessert) => {
+export const useCart = () => {
   const context = useContext(CartContext);
 
   if (!context) {
@@ -42,5 +42,21 @@ export const useCart = (dessert) => {
     });
   };
 
-  return { context, addItem, removeItem, increaseItem, decreaseItem };
+  const cartCount = cart.reduce((total, item) => {
+    return total + item.quantity;
+  }, 0);
+
+  const cartTotal = cart.reduce((total, item) => {
+    return total + item.price * item.quantity;
+  }, 0);
+
+  return {
+    cart,
+    addItem,
+    removeItem,
+    increaseItem,
+    decreaseItem,
+    cartCount,
+    cartTotal,
+  };
 };
