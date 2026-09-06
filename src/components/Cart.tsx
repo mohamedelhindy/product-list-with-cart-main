@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useCart } from "../hooks/useCart";
 import { OrderCompleteModal } from "./OrderCompleteModal";
 
@@ -7,6 +7,16 @@ export const Cart = () => {
   const isEmpty = (): boolean => cart.length === 0;
 
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+
+  useEffect(() => {
+    isModalOpen
+      ? (document.body.style.overflow = "hidden")
+      : (document.body.style.overflow = "");
+
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isModalOpen]);
 
   return (
     <>

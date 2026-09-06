@@ -5,7 +5,7 @@ export const OrderCompleteModal = () => {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 px-4">
-      <div className="w-full max-w-[480px] rounded-xl bg-white p-8 shadow-2xl">
+      <div className="w-full max-w-[480px] max-h-[90vh] rounded-xl bg-white p-8 shadow-2xl ">
         <div className="flex flex-col gap-2 mb-7">
           <img
             className="w-9 h-9 mb-2"
@@ -22,7 +22,7 @@ export const OrderCompleteModal = () => {
           </p>
         </div>
 
-        <div className="bg-[hsl(20_50%_98%)] rounded-lg p-5 flex flex-col">
+        <div className="cart-scroll bg-[hsl(20_50%_98%)] rounded-lg p-5 max-h-[55vh] overflow-y-auto">
           {cart.map((item) => {
             return (
               <div
