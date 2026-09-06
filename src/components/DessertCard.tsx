@@ -30,7 +30,7 @@ export const DessertCard = ({ dessert }: DessertCardProps) => {
 
         <div className="absolute left-1/2 bottom-0 -translate-x-1/2 translate-y-1/2">
           {inCart ? (
-            <div className="w-[150px] flex justify-between items-center bg-[hsl(14_86%_42%)] px-4 py-2 rounded-full">
+            <div className="w-[140px] min-[1340px]:w-[160px] flex justify-between items-center bg-[hsl(14_86%_42%)] px-3 min-[1340px]:px-4 py-2 min-[1340px]:py-2.5 rounded-full">
               <button
                 onClick={() => decreaseItem(dessert)}
                 className="flex items-center justify-center border border-white w-5 h-5 rounded-full cursor-pointer"
@@ -56,14 +56,14 @@ export const DessertCard = ({ dessert }: DessertCardProps) => {
           ) : (
             <button
               onClick={() => addItem(dessert)}
-              className="group w-[160px] flex gap-2 bg-white justify-center items-center border border-rose-400 px-4 py-2.5 rounded-full cursor-pointer hover:border-[hsl(14_86%_42%)] transition-all duration-300"
+              className="group w-[140px] min-[1340px]:w-[160px] flex gap-2 bg-white justify-center items-center border border-rose-400 px-3 min-[1340px]:px-4 py-2 min-[1340px]:py-2.5 rounded-full cursor-pointer hover:border-[hsl(14_86%_42%)] transition-all duration-300"
             >
               <img
                 src="/assets/images/icon-add-to-cart.svg"
                 alt="add to cart"
               />
 
-              <p className="font-semibold text-[13px] group-hover:text-[hsl(14_86%_42%)] transition-colors duration-300">
+              <p className="font-semibold text-[12px] min-[1340px]:text-[13px] group-hover:text-[hsl(14_86%_42%)] transition-colors duration-300">
                 Add to Cart
               </p>
             </button>
